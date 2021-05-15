@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature conventer</title>
+</head>
+<style >
+.shadowbox {
+  width: 50%;
+  border: 3px solid #333;
+  box-shadow: 8px 8px 5px #444;
+  padding:  20px;
+  margin: 10% 15%;
+  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+}
+</style>
+
+<body style="background:url(temp2.jpg); background-repeat: no-repeat; background-size: cover;">
+<div class="shadowbox">
+<center><h1 style="color: red">Temperature conventer</h1></center>
+
+<h2>Celsius to Fahrenheit conventer</h2>
+
+<p>degree in celsius : <input id="c" onkeyup="convert('C')"> </p>
+
+<p>degree in Fahrenheit : <input id="f" onkeyup="convert('F')"> </p> 
+
+
+<script>
+function convert(degree) {
+  var x;
+  if (degree == "C") {
+    x = document.getElementById("c").value * 9 / 5 + 32;
+    document.getElementById("f").value = Math.round(x);
+  } else {
+    x = (document.getElementById("f").value -32) / 1.8 ;
+    document.getElementById("c").value = Math.round(x);
+  }
+}
+</script>
+
+
+<h2> Fahrenheit to Celsius conventer </h2>
+
+<p>
+  <label>Fahrenheit : </label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<label>Celcius : </label>
+  <span id="outputCelcius"></span>
+<script>
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+}
+</script>
+<br> <br><br>
+<a href="tempcov.html">click to view another page</a>
+
+</style>
+</body>
+</html>
